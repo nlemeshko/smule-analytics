@@ -12,7 +12,7 @@ perf as (
     left outer join smule_list l on l.list_type = 'INCLUDE_PARTNER' and l.item_name ilike p.performers
     left outer join performance_favorite pf on pf.performance_key = p.key
             -- Eclude my performances
-    where   performers != 'KaushalSheth1'
+    where   performers != '_hot_dsip'
             -- Exclude performers in the exclude list
     and     performers not in (select item_name from smule_list where list_type = 'EXCLUDE_PARTNER')
 ),

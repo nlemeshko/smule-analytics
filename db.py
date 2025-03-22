@@ -101,7 +101,7 @@ def fetchDBPerformers(fromdate="2018-01-01",todate="2030-01-01"):
                     inner join singer s on s.performed_by = p.performers
                     left outer join locations l on l.lat = s.lat and l.lon = s.lon
             where   p.created_at between '{fromdate}' and '{todate}'
-            window w as (partition by p.performers order by case when p.owner_handle = 'KaushalSheth1' then '2000-01-01'::timestamp else p.created_at end desc, p.created_at desc)
+            window w as (partition by p.performers order by case when p.owner_handle = '_hot_dsip' then '2000-01-01'::timestamp else p.created_at end desc, p.created_at desc)
             ) a
         where a.rn = 1
         order by partner_stats desc, joiner_stats desc
@@ -138,7 +138,7 @@ def fetchDBTopPerformers():
         	where 	1 = 1
         	-- Ignore joins - only want to count performances that I have joined
         	-- and 	join_ind = 0
-        	and 	performers != 'KaushalSheth1'
+        	and 	performers != '_hot_dsip'
         	-- Look at the last N months ending last month
         	and 	created_at >= date_trunc('MON',current_timestamp) - interval '13 months'
         	and 	created_at < date_trunc('MON',current_timestamp)
@@ -189,7 +189,7 @@ def fetchDBPerformances(username,maxperf=9999,fromdate="2018-01-01",todate="2030
     sqlquery = f"""
         with
             myself as (
-                select  'KaushalSheth1' as handle
+                select  '_hot_dsip' as handle
             ),
             perf_stats as (
                 select  s.performed_by,
@@ -356,7 +356,7 @@ def updateParentKeys():
         	)
         select distinct join_key, invite_key from dups
         ) i
-        where performer_handles like '%KaushalSheth1%'
+        where performer_handles like '%_hot_dsip%'
         and key = i.join_key
         and parent_key is null
         """

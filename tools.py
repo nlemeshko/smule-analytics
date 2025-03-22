@@ -109,7 +109,7 @@ def getRecordingMetadataJSON(titleInput):
     data = None
     urltitle = titleInput.replace(" ","+")
     urlstring = f"https://musicbrainz.org/ws/2/recording?query={urltitle}&fmt=json"
-    #urlstring = f"https://www.smule.com/search/by_type?q=KaushalSheth1&type=recording&sort=recent&offset=0&size=0"
+    #urlstring = f"https://www.smule.com/search/by_type?q=_hot_dsip&type=recording&sort=recent&offset=0&size=0"
     titleRow = ""
     try:
         with request.urlopen(urlstring) as url:
@@ -189,7 +189,7 @@ def nonJoiners(utilitiesOptions):
         group by performers
         """
     partnerStats = execDBQuery(sqlquery)
-    userFollowing = fetchUserFollowing('KaushalSheth1')
+    userFollowing = fetchUserFollowing('_hot_dsip')
     for u in userFollowing:
         psList = [d for d in partnerStats if d['performers'] == u['handle']]
         ps = psList[0] if psList else {}

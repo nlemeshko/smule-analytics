@@ -2,7 +2,7 @@ drop view my_performances;
 CREATE OR REPLACE VIEW my_performances AS
 WITH
 myself as (
-    select  'KaushalSheth1' as handle
+    select  '_hot_dsip' as handle
 ),
 perf AS (
     SELECT  p.*,

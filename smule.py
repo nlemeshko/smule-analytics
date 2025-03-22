@@ -47,10 +47,10 @@ def fetchOpenInvites():
     try: gTitleMappings
     except NameError: gTitleMappings = fetchFileTitleMappings('TitleMappings.txt')
     # Fetch open invites from Smmule
-    openInvites = getJSON("KaushalSheth1","active_seed",0,"search",sort="popular")
+    openInvites = getJSON("_hot_dsip","active_seed",0,"search",sort="popular")
     for invite in openInvites['list']:
         # Ignore Group invites
-        if invite["ensemble_type"] == "GROUP" or invite["owner"]["handle"] != "KaushalSheth1":
+        if invite["ensemble_type"] == "GROUP" or invite["owner"]["handle"] != "_hot_dsip":
             continue
         # Add invite to list of open invites
         fixedTitle = fix_title(invite['title'],gTitleMappings).replace(" [Short]","")

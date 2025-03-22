@@ -13,9 +13,9 @@ from datetime import datetime
 
 # Set defaults for global variable that are used in the app
 searchOptions = {'solo':False,'contentType':"both",'joins':True,'searchType':"normal",'dbfilter':"1=1",'grouponly':False}
-analyticsOptions = {'username':"KaushalSheth1",'fromdate':"2018-01-01",'todate':"2030-01-01",'analyticstitle':"Custom",'headings':[],'analyticssql':""}
-utilitiesOptions = {'username':"KaushalSheth1",'fromdate':"2018-01-01",'todate':"2030-01-01",'title':"Lag+Ja+Gale",'sort':'popular','distance':"500",'centlat':"37.76",'centlon':"-121.89"}
-inviteOptions = {'knowntitles':True,'unknowntitles':False,'repeats':False,'newtitles':False,'partnersql':"select 'KaushalSheth1' as partner_name,1 as sort_order"}
+analyticsOptions = {'username':"_hot_dsip",'fromdate':"2018-01-01",'todate':"2030-01-01",'analyticstitle':"Custom",'headings':[],'analyticssql':""}
+utilitiesOptions = {'username':"_hot_dsip",'fromdate':"2018-01-01",'todate':"2030-01-01",'title':"Lag+Ja+Gale",'sort':'popular','distance':"500",'centlat':"37.76",'centlon':"-121.89"}
+inviteOptions = {'knowntitles':True,'unknowntitles':False,'repeats':False,'newtitles':False,'partnersql':"select '_hot_dsip' as partner_name,1 as sort_order"}
 user = None
 search_user = None
 performances = None
